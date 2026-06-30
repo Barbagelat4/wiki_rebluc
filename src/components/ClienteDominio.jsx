@@ -1,236 +1,163 @@
-
-import { Monitor, Network, Users, CheckCircle, AlertTriangle } from 'lucide-react'
+import { Monitor, Network, Users, CheckCircle2, AlertTriangle } from 'lucide-react'
 
 function ClienteDominio() {
   return (
     <div className="space-y-8">
       {/* Header de Sección */}
-      <div className="bg-gradient-to-r from-yellow-600 to-orange-600 rounded-3xl shadow-2xl p-8 text-white">
-        <div className="flex items-center space-x-4">
-          <div className="bg-white/25 p-4 rounded-2xl backdrop-blur-lg">
-            <Monitor className="h-10 w-10" />
-          </div>
-          <div>
-            <h1 className="text-4xl font-black">2.1.3 — Cliente en el Dominio</h1>
-            <p className="text-yellow-100 text-lg mt-1">Configuración y unión del cliente WIN10-CLIENT al dominio</p>
-          </div>
-        </div>
+      <div className="border-b pb-6">
+        <h1 className="text-3xl font-bold tracking-tight">2.1.3 — Cliente en el Dominio</h1>
+        <p className="text-gray-500 mt-2 text-lg">Configuración y unión del cliente Windows 10 al dominio rebolledo.local</p>
       </div>
 
       {/* Configuración del Cliente */}
-      <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 hover:shadow-2xl transition-all duration-500">
-        <h2 className="text-2xl font-extrabold text-slate-800 mb-6 pb-4 border-b border-slate-100 flex items-center">
-          <div className="bg-yellow-100 p-4 rounded-2xl mr-4 shadow-lg">
-            <Network className="h-7 w-7 text-yellow-600" />
-          </div>
+      <div className="border rounded-lg bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
+          <Network className="h-5 w-5 text-yellow-600" />
           Configuración del Cliente WIN10-CLIENT
         </h2>
         
-        <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6 border border-yellow-200 shadow-lg">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-3">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="border rounded-lg p-5 bg-gray-50">
+            <dl className="space-y-3">
               {[
-                { label: "Nombre del equipo:", value: "WIN10-CLIENT" },
-                { label: "Dirección IP:", value: "192.168.10.20" },
-                { label: "Máscara de subred:", value: "255.255.255.0" }
+                { label: 'Nombre del equipo', value: 'WIN10-CLIENT' },
+                { label: 'Dirección IP', value: '192.168.10.20' },
+                { label: 'Máscara de subred', value: '255.255.255.0' }
               ].map((item, index) => (
-                <div key={index} className="flex justify-between items-center bg-white/70 p-4 rounded-xl shadow-sm">
-                  <span className="text-base font-semibold text-slate-700">{item.label}</span>
-                  <span className="text-yellow-800 font-black text-lg font-mono">{item.value}</span>
+                <div key={index} className="flex justify-between items-center py-2 border-b">
+                  <dt className="text-sm font-medium">{item.label}</dt>
+                  <dd className="text-sm font-mono">{item.value}</dd>
                 </div>
               ))}
-            </div>
-            <div className="space-y-3">
+              <div className="flex justify-between items-center py-2">
+                <dt className="text-sm font-medium">Gateway</dt>
+                <dd className="text-sm font-mono">192.168.10.1</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div className="border rounded-lg p-5 bg-gray-50">
+            <dl className="space-y-3">
               {[
-                { label: "Gateway:", value: "192.168.10.1" },
-                { label: "DNS primario:", value: "192.168.10.10" },
-                { label: "Dominio:", value: "empresa.local" }
+                { label: 'DNS primario', value: '192.168.10.10' },
+                { label: 'Dominio', value: 'rebolledo.local' }
               ].map((item, index) => (
-                <div key={index} className="flex justify-between items-center bg-white/70 p-4 rounded-xl shadow-sm">
-                  <span className="text-base font-semibold text-slate-700">{item.label}</span>
-                  <span className="text-yellow-800 font-black text-lg font-mono">{item.value}</span>
+                <div key={index} className="flex justify-between items-center py-2 border-b">
+                  <dt className="text-sm font-medium">{item.label}</dt>
+                  <dd className="text-sm font-mono">{item.value}</dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
         </div>
+      </div>
+
+      {/* Evidencia 1: Ping */}
+      <div className="border rounded-lg bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold mb-6">Evidencia 1: Verificación de Conectividad</h2>
+        <div className="border rounded-md overflow-hidden shadow-sm">
+          <img 
+            src="/img_rebluc/PingdePC01.png" 
+            alt="Ping exitoso desde el cliente al servidor" 
+            className="w-full h-auto"
+          />
+        </div>
+        <p className="text-sm text-gray-500 mt-4 text-center italic">
+          Figura 6: Comando ping para verificar conectividad entre cliente y DC
+        </p>
       </div>
 
       {/* Proceso de Unión */}
-      <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 hover:shadow-2xl transition-all duration-500">
-        <h2 className="text-2xl font-extrabold text-slate-800 mb-6 pb-4 border-b border-slate-100">
-          Proceso de Unión al Dominio
-        </h2>
+      <div className="border rounded-lg bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold mb-6">Proceso de Unión al Dominio</h2>
         
-        <div className="space-y-6">
+        <ol className="space-y-4">
           {[
-            {
-              title: "1. Preparación del cliente",
-              color: "blue",
-              items: [
-                "Configuración de IP estática (192.168.10.20)",
-                "Configuración de DNS apuntando al DC (192.168.10.10)",
-                "Verificación de conectividad con ping 192.168.10.10",
-                "Prueba de resolución DNS con nslookup empresa.local"
-              ]
-            },
-            {
-              title: "2. Unión al dominio",
-              color: "green",
-              items: [
-                "Acceso a Propiedades del sistema",
-                "Cambio de 'Grupo de trabajo' a 'Dominio'",
-                "Ingreso del dominio: empresa.local",
-                "Credenciales utilizadas: AdminDominio",
-                "Confirmación de unión exitosa"
-              ]
-            },
-            {
-              title: "3. Verificación post-unión",
-              color: "purple",
-              items: [
-                "Reinicio del equipo cliente obligatorio",
-                "Inicio de sesión con usuario del dominio",
-                "Verificación de aplicación de políticas",
-                "Comprobación de perfiles de usuario"
-              ]
-            }
-          ].map((step, index) => (
-            <div key={index} className={`bg-gradient-to-r from-${step.color}-50 to-${step.color}-100 rounded-2xl p-6 border-l-8 border-${step.color}-600 shadow-lg`}>
-              <h3 className="font-black text-xl text-slate-800 mb-4">{step.title}</h3>
-              <ul className="space-y-2">
-                {step.items.map((item, idx) => (
-                  <li key={idx} className="flex items-center text-base text-slate-700">
-                    <div className="w-2 h-2 bg-slate-700 rounded-full mr-3"></div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            'Preparación: Configurar IP y DNS del cliente',
+            'Propiedades del sistema > Cambiar grupo de trabajo a dominio',
+            'Ingresar el nombre del dominio: rebolledo.local',
+            'Autenticarse con el usuario AdminDominio',
+            'Confirmar unión exitosa y reiniciar el equipo'
+          ].map((item, index) => (
+            <li key={index} className="flex items-start gap-4">
+              <span className="flex items-center justify-center h-7 w-7 rounded-full bg-slate-900 text-white text-xs font-bold flex-shrink-0">
+                {index + 1}
+              </span>
+              <p className="text-sm pt-0.5">{item}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
 
-      {/* Usuarios que Pueden Iniciar Sesión */}
-      <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 hover:shadow-2xl transition-all duration-500">
-        <div className="flex items-center mb-6 pb-4 border-b border-slate-100">
-          <div className="bg-indigo-100 p-4 rounded-2xl mr-4 shadow-lg">
-            <Users className="h-7 w-7 text-indigo-600" />
-          </div>
-          <h2 className="text-2xl font-extrabold text-slate-800">Usuarios Autorizados</h2>
+      {/* Evidencia 2: Agregar al Dominio */}
+      <div className="border rounded-lg bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold mb-6">Evidencia 2: Proceso de Unión al Dominio</h2>
+        <div className="border rounded-md overflow-hidden shadow-sm">
+          <img 
+            src="/img_rebluc/agregaralDominio.png" 
+            alt="Ventana de unión al dominio" 
+            className="w-full h-auto"
+          />
         </div>
+        <p className="text-sm text-gray-500 mt-4 text-center italic">
+          Figura 7: Paso de unión del cliente al dominio rebolledo.local
+        </p>
+      </div>
+
+      {/* Evidencia 3: Listo en Dominio */}
+      <div className="border rounded-lg bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold mb-6">Evidencia 3: Unión Exitosa</h2>
+        <div className="border rounded-md overflow-hidden shadow-sm">
+          <img 
+            src="/img_rebluc/listoenEldDominio.png" 
+            alt="Confirmación de unión al dominio" 
+            className="w-full h-auto"
+          />
+        </div>
+        <p className="text-sm text-gray-500 mt-4 text-center italic">
+          Figura 8: Mensaje de bienvenida al dominio y confirmación de éxito
+        </p>
+      </div>
+
+      {/* Usuarios Autorizados */}
+      <div className="border rounded-lg bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
+          <Users className="h-5 w-5 text-indigo-600" />
+          Usuarios del Dominio que Pueden Iniciar Sesión
+        </h2>
         
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           {[
-            { name: "AdminDominio", role: "Administrador de Dominio", color: "red" },
-            { name: "UsuarioIT", role: "Departamento IT", color: "blue" },
-            { name: "UsuarioVentas", role: "Departamento Ventas", color: "green" },
-            { name: "UsuarioRRHH", role: "Recursos Humanos", color: "yellow" }
+            { name: 'AdminDominio', role: 'Administrador de Dominio' },
+            { name: 'UsuarioIT', role: 'Departamento IT' },
+            { name: 'UsuarioVentas', role: 'Departamento Ventas' },
+            { name: 'UsuarioRRHH', role: 'Recursos Humanos' }
           ].map((user, index) => (
-            <div key={index} className={`bg-gradient-to-r from-${user.color}-50 to-${user.color}-100 rounded-2xl p-5 border-l-8 border-${user.color}-600 shadow-lg`}>
-              <div className="flex items-center mb-2">
-                <div className={`w-4 h-4 bg-${user.color}-600 rounded-full mr-3`}></div>
-                <span className="font-black text-lg text-slate-800">{user.name}</span>
-              </div>
-              <div className="text-base text-slate-700">{user.role}</div>
+            <div key={index} className="p-4 border rounded-md bg-gray-50">
+              <div className="font-bold">{user.name}</div>
+              <div className="text-sm text-gray-500">{user.role}</div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Verificaciones Realizadas */}
-      <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 hover:shadow-2xl transition-all duration-500">
-        <h2 className="text-2xl font-extrabold text-slate-800 mb-6 pb-4 border-b border-slate-100">
-          Verificaciones Post-Unión
-        </h2>
-        
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-3">
-            {[
-              "Cliente aparece en AD Users and Computers",
-              "Inicio de sesión con credenciales del dominio exitoso",
-              "Políticas de grupo aplicándose correctamente",
-              "Carpetas de perfil de usuario creadas"
-            ].map((item, index) => (
-              <div key={index} className="flex items-center text-base text-green-700 bg-white/70 p-4 rounded-xl shadow-sm border border-green-100">
-                <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
-                {item}
-              </div>
-            ))}
-          </div>
-          <div className="space-y-3">
-            {[
-              "Resolución DNS funcionando para el dominio",
-              "Acceso a recursos compartidos del servidor",
-              "Sincronización de tiempo con el DC",
-              "Eventos de logon registrados en el servidor"
-            ].map((item, index) => (
-              <div key={index} className="flex items-center text-base text-green-700 bg-white/70 p-4 rounded-xl shadow-sm border border-green-100">
-                <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Solución de Problemas */}
-      <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 hover:shadow-2xl transition-all duration-500">
-        <h2 className="text-2xl font-extrabold text-slate-800 mb-6 pb-4 border-b border-slate-100">
-          Resolución de Problemas Comunes
-        </h2>
-        
-        <div className="space-y-5">
+      {/* Verificaciones Post-Unión */}
+      <div className="border rounded-lg bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold mb-6">Verificaciones Post-Unión</h2>
+        <ul className="space-y-3">
           {[
-            {
-              title: "Error de conectividad de red",
-              symptom: "No se puede contactar con el controlador de dominio",
-              solution: "Verificar configuración de IP, gateway y DNS. Probar conectividad con ping.",
-              color: "orange"
-            },
-            {
-              title: "Error de credenciales",
-              symptom: "Las credenciales proporcionadas no son válidas",
-              solution: "Verificar que la cuenta tiene permisos para unir equipos al dominio.",
-              color: "red"
-            },
-            {
-              title: "Error de resolución DNS",
-              symptom: "No se puede resolver el nombre del dominio",
-              solution: "Configurar DNS primario apuntando al controlador de dominio.",
-              color: "yellow"
-            }
-          ].map((problem, index) => (
-            <div key={index} className={`bg-gradient-to-r from-${problem.color}-50 to-${problem.color}-100 rounded-2xl p-6 border-l-8 border-${problem.color}-600 shadow-lg`}>
-              <div className="flex items-center mb-3">
-                <AlertTriangle className={`h-6 w-6 text-${problem.color}-600 mr-3`} />
-                <h3 className="font-black text-lg text-slate-800">{problem.title}</h3>
-              </div>
-              <p className="text-base text-slate-700 mb-2">
-                <strong>Síntoma:</strong> {problem.symptom}
-              </p>
-              <p className="text-base text-slate-700">
-                <strong>Solución:</strong> {problem.solution}
-              </p>
-            </div>
+            'Cliente aparece en Usuarios y Equipos de Active Directory',
+            'Inicio de sesión exitoso con credenciales del dominio',
+            'Reinicio del equipo cliente completado',
+            'Resolución DNS funcionando correctamente',
+            'Acceso a recursos del servidor disponibles'
+          ].map((item, index) => (
+            <li key={index} className="flex items-center gap-3 p-4 bg-emerald-50 border border-emerald-200 rounded-md">
+              <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+              <span className="text-sm">{item}</span>
+            </li>
           ))}
-        </div>
-      </div>
-
-      {/* Captura */}
-      <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 hover:shadow-2xl transition-all duration-500">
-        <h2 className="text-2xl font-extrabold text-slate-800 mb-6 pb-4 border-b border-slate-100">
-          Captura de Pantalla
-        </h2>
-        <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl p-8 text-center border-2 border-dashed border-slate-300">
-          <p className="text-lg text-slate-600 font-semibold mb-2">Cliente unido al dominio - Propiedades del sistema</p>
-          <p className="text-sm text-slate-500 italic">
-            Referencia: docs_rebluc/img_rebluc/cliente_dominio.png
-          </p>
-          <div className="mt-4 text-xs text-slate-400">
-            (La captura mostrará las propiedades del sistema confirmando la unión al dominio empresa.local)
-          </div>
-        </div>
+        </ul>
       </div>
     </div>
   )
