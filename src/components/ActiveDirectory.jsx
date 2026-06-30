@@ -1,241 +1,193 @@
-import { Network, Users, FolderTree, Shield, CheckCircle } from 'lucide-react'
+
+import { Users, FolderTree, Shield, CheckCircle2, Server, Workflow } from 'lucide-react'
 
 function ActiveDirectory() {
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <div className="flex items-center mb-4">
-          <Network className="h-8 w-8 text-green-600 mr-3" />
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">2.1.2 — Active Directory</h1>
-            <p className="text-gray-600">Configuración del dominio, OUs, usuarios y grupos</p>
-          </div>
-        </div>
+    <div className="space-y-10">
+      {/* Header de Sección */}
+      <div className="border-b border-slate-200 pb-6">
+        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">2.1.2 — Active Directory Domain Services</h1>
+        <p className="text-slate-500 mt-2 text-lg">Promoción del servidor a controlador de dominio y estructura de Active Directory</p>
       </div>
 
-      {/* Configuración del Dominio */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Promoción a Controlador de Dominio</h2>
-        
-        <div className="bg-green-50 rounded-lg p-4 mb-4">
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <h3 className="font-semibold text-green-900 mb-2">Configuración del Dominio</h3>
-              <div className="space-y-1 text-sm">
-                <div><strong>Nombre del dominio:</strong> <code className="bg-green-100 px-1 rounded">empresa.local</code></div>
-                <div><strong>Nivel funcional:</strong> Windows Server 2019</div>
-                <div><strong>Controlador de dominio:</strong> SRV-DC01.empresa.local</div>
-              </div>
-            </div>
-            <div>
-              <h3 className="font-semibold text-green-900 mb-2">Servicios Instalados</h3>
-              <div className="space-y-1 text-sm">
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-1" />
-                  <span>AD Domain Services (AD DS)</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-1" />
-                  <span>DNS Server</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-1" />
-                  <span>Global Catalog</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Estructura de OUs */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <div className="flex items-center mb-4">
-          <FolderTree className="h-6 w-6 text-blue-600 mr-2" />
-          <h2 className="text-xl font-semibold text-gray-900">Unidades Organizacionales (OU)</h2>
-        </div>
-        
+      {/* Datos del Dominio */}
+      <div className="bg-white border border-slate-100 rounded-xl shadow-sm p-8">
+        <h2 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
+          <Server className="h-5 w-5 text-blue-600 mr-2" />
+          Configuración del Dominio
+        </h2>
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-blue-50 rounded-lg p-4">
-            <h3 className="font-semibold text-blue-900 mb-3">📁 Departamentos</h3>
-            <div className="space-y-2 text-sm pl-4">
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mr-2"></div>
-                <span>IT (Tecnología)</span>
+          <div className="border border-slate-200 rounded-lg p-6 bg-slate-50">
+            <dl className="space-y-4">
+              <div className="flex justify-between py-1">
+                <dt className="text-sm font-medium text-slate-700">Nombre del Dominio</dt>
+                <dd className="text-sm font-mono text-slate-900">rebolledo.local</dd>
               </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mr-2"></div>
-                <span>Ventas</span>
+              <div className="flex justify-between py-1">
+                <dt className="text-sm font-medium text-slate-700">Nivel Funcional</dt>
+                <dd className="text-sm text-slate-700">Windows Server 2019</dd>
               </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mr-2"></div>
-                <span>Recursos Humanos</span>
+              <div className="flex justify-between py-1">
+                <dt className="text-sm font-medium text-slate-700">Controlador de Dominio</dt>
+                <dd className="text-sm font-mono text-slate-900">SRV-DC01</dd>
               </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mr-2"></div>
-                <span>Contabilidad</span>
-              </div>
-            </div>
+            </dl>
           </div>
-
-          <div className="bg-purple-50 rounded-lg p-4">
-            <h3 className="font-semibold text-purple-900 mb-3">💻 Equipos</h3>
-            <div className="space-y-2 text-sm pl-4">
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-purple-600 rounded-full mr-2"></div>
-                <span>Servidores</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-purple-600 rounded-full mr-2"></div>
-                <span>Estaciones de Trabajo</span>
-              </div>
-            </div>
+          <div className="border border-slate-200 rounded-lg p-6 bg-slate-50">
+            <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">Roles Instalados</h3>
+            <ul className="space-y-2">
+              {["Active Directory Domain Services", "DNS Server", "Global Catalog"].map((item, index) => (
+                <li key={index} className="flex items-center text-sm text-slate-700">
+                  <CheckCircle2 className="h-4.5 w-4.5 text-emerald-500 mr-2" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
+      </div>
+
+      {/* Evidencia Server Manager */}
+      <div className="bg-white border border-slate-100 rounded-xl shadow-sm p-8">
+        <h2 className="text-xl font-bold text-slate-900 mb-6">Evidencia 2: Server Manager</h2>
+        <div className="border border-slate-200 rounded-lg overflow-hidden shadow-md">
+          <img 
+            src="/img_rebluc/activeDirectory.png" 
+            alt="Roles instalados en Server Manager" 
+            className="w-full h-auto"
+          />
+        </div>
+        <p className="text-sm text-slate-500 mt-4 text-center italic">Figura 2: Roles AD DS y DNS instalados y funcionales</p>
+      </div>
+
+      {/* Estructura OUs */}
+      <div className="bg-white border border-slate-100 rounded-xl shadow-sm p-8">
+        <h2 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
+          <FolderTree className="h-5 w-5 text-purple-600 mr-2" />
+          Estructura de Unidades Organizativas
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">Por Departamento</h3>
+            <ul className="space-y-3">
+              {["Administración", "Académicos", "Estudiantes"].map((dept, index) => (
+                <li key={index} className="flex items-center p-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-700 text-sm">
+                  <div className="w-2 h-2 bg-purple-600 rounded-full mr-3" />
+                  {dept}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">Por Tipo de Equipo</h3>
+            <ul className="space-y-3">
+              {["Servidores", "Estaciones de Trabajo"].map((item, index) => (
+                <li key={index} className="flex items-center p-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-700 text-sm">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mr-3" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Evidencias OUs en Grid */}
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="bg-white border border-slate-100 rounded-xl shadow-sm p-8">
+          <h3 className="text-lg font-semibold text-slate-900 mb-6">Evidencia 3: OU Principal</h3>
+          <div className="border border-slate-200 rounded-lg overflow-hidden shadow-md">
+            <img 
+              src="/img_rebluc/dominio.png" 
+              alt="Unidad organizativa INACAP" 
+              className="w-full h-auto"
+            />
+          </div>
+          <p className="text-xs text-slate-500 mt-3 text-center italic">Figura 3: OU INACAP Valparaíso</p>
+        </div>
+        <div className="bg-white border border-slate-100 rounded-xl shadow-sm p-8">
+          <h3 className="text-lg font-semibold text-slate-900 mb-6">Evidencia 4: OU Estudiantes</h3>
+          <div className="border border-slate-200 rounded-lg overflow-hidden shadow-md">
+            <img 
+              src="/img_rebluc/AD-OU-Estudiantes.png" 
+              alt="OU Estudiantes" 
+              className="w-full h-auto"
+            />
+          </div>
+          <p className="text-xs text-slate-500 mt-3 text-center italic">Figura 4: OU Estudiantes creada</p>
+        </div>
+      </div>
+
+      {/* Evidencia Usuarios y Equipos */}
+      <div className="bg-white border border-slate-100 rounded-xl shadow-sm p-8">
+        <h2 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
+          <Users className="h-5 w-5 text-orange-600 mr-2" />
+          Evidencia 5: Usuarios y Equipos de Active Directory
+        </h2>
+        <div className="border border-slate-200 rounded-lg overflow-hidden shadow-md">
+          <img 
+            src="/img_rebluc/UsuariosYEquipos.png" 
+            alt="Consola de Active Directory" 
+            className="w-full h-auto"
+          />
+        </div>
+        <p className="text-sm text-slate-500 mt-4 text-center italic">Figura 5: Estructura de objetos en Active Directory</p>
       </div>
 
       {/* Usuarios y Grupos */}
-      <div className="grid md:grid-cols-2 gap-6">
-        {/* Usuarios */}
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="flex items-center mb-4">
-            <Users className="h-6 w-6 text-orange-600 mr-2" />
-            <h2 className="text-xl font-semibold text-gray-900">Usuarios Creados</h2>
-          </div>
-          
-          <div className="space-y-3">
-            <div className="bg-red-50 border-l-4 border-red-500 p-3">
-              <div className="font-semibold text-red-900">AdminDominio</div>
-              <div className="text-sm text-red-700">Administrador de Dominio</div>
-              <div className="text-xs text-red-600">Permisos totales del dominio</div>
-            </div>
-            
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-3">
-              <div className="font-semibold text-blue-900">UsuarioIT</div>
-              <div className="text-sm text-blue-700">Departamento IT</div>
-              <div className="text-xs text-blue-600">OU: Departamentos/IT</div>
-            </div>
-            
-            <div className="bg-green-50 border-l-4 border-green-500 p-3">
-              <div className="font-semibold text-green-900">UsuarioVentas</div>
-              <div className="text-sm text-green-700">Departamento Ventas</div>
-              <div className="text-xs text-green-600">OU: Departamentos/Ventas</div>
-            </div>
-            
-            <div className="bg-yellow-50 border-l-4 border-yellow-500 p-3">
-              <div className="font-semibold text-yellow-900">UsuarioRRHH</div>
-              <div className="text-sm text-yellow-700">Recursos Humanos</div>
-              <div className="text-xs text-yellow-600">OU: Departamentos/RRHH</div>
-            </div>
-          </div>
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="bg-white border border-slate-100 rounded-xl shadow-sm p-8">
+          <h2 className="text-xl font-bold text-slate-900 mb-6">Usuarios de Dominio</h2>
+          <ul className="space-y-3">
+            {[
+              "AdminDominio (Administrador)",
+              "UsuarioIT (Departamento IT)",
+              "UsuarioVentas (Departamento Ventas)",
+              "UsuarioRRHH (Recursos Humanos)"
+            ].map((user, index) => (
+              <li key={index} className="p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-800">
+                {user}
+              </li>
+            ))}
+          </ul>
         </div>
-
-        {/* Grupos */}
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="flex items-center mb-4">
-            <Shield className="h-6 w-6 text-indigo-600 mr-2" />
-            <h2 className="text-xl font-semibold text-gray-900">Grupos de Seguridad</h2>
-          </div>
-          
-          <div className="space-y-3">
-            <div className="bg-indigo-50 rounded-lg p-3">
-              <div className="font-semibold text-indigo-900 mb-1">GrupoIT</div>
-              <div className="text-sm text-indigo-700 mb-2">Administradores locales</div>
-              <div className="text-xs text-indigo-600">
-                <strong>Miembros:</strong> UsuarioIT, AdminDominio
-              </div>
-            </div>
-            
-            <div className="bg-emerald-50 rounded-lg p-3">
-              <div className="font-semibold text-emerald-900 mb-1">GrupoVentas</div>
-              <div className="text-sm text-emerald-700 mb-2">Usuarios del dominio</div>
-              <div className="text-xs text-emerald-600">
-                <strong>Miembros:</strong> UsuarioVentas
-              </div>
-            </div>
-            
-            <div className="bg-amber-50 rounded-lg p-3">
-              <div className="font-semibold text-amber-900 mb-1">GrupoRRHH</div>
-              <div className="text-sm text-amber-700 mb-2">Permisos especiales</div>
-              <div className="text-xs text-amber-600">
-                <strong>Miembros:</strong> UsuarioRRHH
-              </div>
-            </div>
-          </div>
+        <div className="bg-white border border-slate-100 rounded-xl shadow-sm p-8">
+          <h2 className="text-xl font-bold text-slate-900 mb-6">Grupos de Seguridad</h2>
+          <ul className="space-y-3">
+            {[
+              "GrupoIT (Administradores locales)",
+              "GrupoVentas (Usuarios de dominio)",
+              "GrupoRRHH (Permisos especiales)"
+            ].map((grupo, index) => (
+              <li key={index} className="p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-800">
+                {grupo}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
-      {/* Proceso Realizado */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Proceso de Implementación</h2>
-        
-        <div className="space-y-4">
-          <div className="flex items-start space-x-3">
-            <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-            <div>
-              <h3 className="font-medium text-gray-900">1. Instalación del rol AD DS</h3>
-              <p className="text-sm text-gray-600 mt-1">
-                Instalación del rol Active Directory Domain Services a través del Server Manager.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start space-x-3">
-            <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-            <div>
-              <h3 className="font-medium text-gray-900">2. Promoción del servidor a DC</h3>
-              <p className="text-sm text-gray-600 mt-1">
-                Promoción a controlador de dominio con creación del nuevo bosque "empresa.local".
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start space-x-3">
-            <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-            <div>
-              <h3 className="font-medium text-gray-900">3. Creación de la estructura de OUs</h3>
-              <p className="text-sm text-gray-600 mt-1">
-                Organización lógica del directorio por departamentos y tipos de equipos.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start space-x-3">
-            <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-            <div>
-              <h3 className="font-medium text-gray-900">4. Creación de usuarios y grupos</h3>
-              <p className="text-sm text-gray-600 mt-1">
-                Configuración de cuentas de usuario y grupos de seguridad con permisos apropiados.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start space-x-3">
-            <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-            <div>
-              <h3 className="font-medium text-gray-900">5. Asignación de permisos y membresías</h3>
-              <p className="text-sm text-gray-600 mt-1">
-                Configuración de la pertenencia a grupos y asignación de permisos según roles.
-              </p>
-            </div>
-          </div>
-        </div>
+      {/* Resumen */}
+      <div className="bg-white border border-slate-100 rounded-xl shadow-sm p-8">
+        <h2 className="text-xl font-bold text-slate-900 mb-6">Resumen del Proceso</h2>
+        <ol className="space-y-4">
+          {[
+            "Instalación del rol AD DS",
+            "Promoción a controlador de dominio",
+            "Creación de unidades organizativas (OUs)",
+            "Creación de usuarios y grupos de seguridad",
+            "Asignación de permisos y membresías"
+          ].map((item, index) => (
+            <li key={index} className="flex items-start space-x-4">
+              <span className="flex items-center justify-center h-7 w-7 bg-blue-600 text-white text-xs font-bold rounded-full flex-shrink-0">
+                {index + 1}
+              </span>
+              <p className="text-sm text-slate-700 pt-0.5">{item}</p>
+            </li>
+          ))}
+        </ol>
       </div>
 
-      {/* Captura */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Captura de Pantalla</h2>
-        <div className="bg-gray-100 rounded-lg p-8 text-center">
-          <p className="text-gray-600 mb-2">Active Directory Users and Computers</p>
-          <p className="text-sm text-gray-500 italic">
-            Referencia: docs_rebluc/img_rebluc/active_directory.png
-          </p>
-          <div className="mt-4 text-xs text-gray-400">
-            [La captura mostraría la consola ADUC con la estructura de OUs, usuarios y grupos creados]
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
